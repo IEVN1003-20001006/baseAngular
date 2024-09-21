@@ -1,0 +1,30 @@
+<div class="cine-form">
+    <h2>Cálculo de boletos de cine</h2>
+    
+    <form (ngSubmit)="calcularTotal()">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" [(ngModel)]="nombreComprador" name="nombreComprador" required>
+      </div>
+  
+      <div>
+        <label for="boletos">Cantidad de boletos:</label>
+        <input type="number" id="boletos" [(ngModel)]="cantidadBoletos" name="cantidadBoletos" required>
+      </div>
+  
+      <div>
+        <label for="cineco">¿Usa tarjeta CINECO?</label>
+        <input type="checkbox" id="cineco" [(ngModel)]="usaCineco" name="usaCineco">
+      </div>
+  
+      <button type="submit">Calcular Total</button>
+    </form>
+  
+    <div *ngIf="totalPagar !== null">
+      <h3>Resultado:</h3>
+      <p>Nombre del Comprador: {{ nombreComprador }}</p>
+      <p>Cantidad de Boletos: {{ cantidadBoletos }}</p>
+      <p>Total a Pagar: ${{ totalPagar | number }}</p>
+    </div>
+  </div>
+  
