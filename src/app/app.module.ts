@@ -9,7 +9,7 @@ import { ProductoFilterPipe } from './product/producto-filter.pipe';
 import { OperasBaseComponent } from './formularios/operas-base/operas-base.component';
 import { Ejemplo1Component } from './formularios/ejemplo1/ejemplo1.component';
 import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component';
-import { ResistenciasComponent } from './formularios/resistencias/resistencias.component';
+import { ResistenciaComponent } from './formularios/resistencia/resistencia.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +19,13 @@ import { ResistenciasComponent } from './formularios/resistencias/resistencias.c
     OperasBaseComponent,
     Ejemplo1Component,
     CinepolisComponent,
-    ResistenciasComponent
+    ResistenciaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

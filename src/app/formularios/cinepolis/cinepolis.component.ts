@@ -26,6 +26,7 @@ export class CinepolisComponent {
       const costoEntrada = 12;
       const maxEntradas = numPersonas * this.maxEntradasPorPersona;
 
+     
       if (numEntradas > maxEntradas) {
         alert(`${nombreComprador}, el número máximo de boletos que puedes comprar es ${maxEntradas}.`);
         this.montoTotal = null;
@@ -35,26 +36,24 @@ export class CinepolisComponent {
       let total = costoEntrada * numEntradas;
       let descuento = 0;
 
- 
+      
       if (numEntradas > 5) {
-        descuento = 0.15;  // 15% de descuento
+        descuento = 0.15; 
       } else if (numEntradas >= 3) {
-        descuento = 0.10;  // 10% de descuento
+        descuento = 0.10;  
       }
 
-  
+     
       total -= total * descuento;
 
-
       if (tarjetaSocioCineco) {
-        total -= total * 0.10;  // 10% adicional
+        total -= total * 0.10;  
       }
 
- 
       this.montoTotal = total;
 
     } else {
-      this.montoTotal = null;
+      this.montoTotal = null; 
     }
   }
 }

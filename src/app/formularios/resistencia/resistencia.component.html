@@ -1,0 +1,81 @@
+<div class="container">
+    <h1>Calculadora de Resistencias</h1>
+  
+    <!-- Sección de Bandas -->
+    <form [formGroup]="resistenciaForm" (ngSubmit)="calcular()">
+      <div class="bandas">
+        <div>
+          <label for="color1">Primera Banda</label>
+          <div>
+            <select id="color1" formControlName="color1">
+              <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+            </select>
+          </div>
+        </div>
+  
+        <div>
+          <label for="color2">Segunda Banda</label>
+          <div>
+            <select id="color2" formControlName="color2">
+              <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+            </select>
+          </div>
+        </div>
+  
+        <div>
+          <label for="color3">Tercera Banda</label>
+          <div>
+            <select id="color3" formControlName="color3">
+              <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Sección de Tolerancia -->
+      <div class="tolerancia">
+        <p>Tolerancia</p>
+        <label>
+          <input type="radio" formControlName="tolerancia" value="oro"> Oro
+        </label>
+        <label>
+          <input type="radio" formControlName="tolerancia" value="plata"> Plata
+        </label>
+      </div>
+  
+      <!-- Botón de Calcular -->
+      <button type="submit">Calcular</button>
+    </form>
+  
+    <!-- Sección de Resultados -->
+    <div *ngIf="resultado" class="resultados">
+      <h2>Resultados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Color 1</th>
+            <th>Color 2</th>
+            <th>Color 3</th>
+            <th>Tolerancia</th>
+            <th>Valor</th>
+            <th>Valor Máximo</th>
+            <th>Valor Mínimo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td [ngStyle]="{ 'background-color': getColorCode(resistenciaForm.value.color1) }">{{ resistenciaForm.value.color1 }}</td>
+            <td [ngStyle]="{ 'background-color': getColorCode(resistenciaForm.value.color2) }">{{ resistenciaForm.value.color2 }}</td>
+            <td [ngStyle]="{ 'background-color': getColorCode(resistenciaForm.value.color3) }">{{ resistenciaForm.value.color3 }}</td>
+            <td [ngStyle]="{ 'background-color': getToleranceColor() }">
+              {{ resistenciaForm.value.tolerancia === 'oro' ? 'Dorado 5%' : 'Plata 10%' }}
+            </td>
+            <td>{{ valor }}</td>
+            <td>{{ valorMaximo }}</td>
+            <td>{{ valorMinimo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
